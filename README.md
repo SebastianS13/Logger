@@ -1,7 +1,7 @@
 # Logger  
   
 This is my attempt at writing a logger class that someone might actually use. I added serveral features that I think people would want and everything is obviously
-everything is customisable.  
+is customisable.  
   
 # Usage  
   

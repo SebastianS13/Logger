@@ -2,11 +2,11 @@
 
 int main()
 {
-	SebLogger Logger(true);
+	SebLogger Logger;
 
-	Logger.Log("Hello!", Logger.DEBUG);
-	Logger.Log("Hello!", Logger.WARNING);
-	Logger.Log("Hello!", Logger.ERROR);
+	Logger.Log("Example of a normal log!", Logger.Debug);
+	Logger.Log("Example of a warning!", Logger.Warning);
+	Logger.Log("Example of a big bad error!", Logger.Error);
 
 	Logger.ExportToFile();
 }

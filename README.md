@@ -19,3 +19,11 @@ To log something you need to pass a message and a severity enum. You can see exa
 To export all logs to a file you need to call the export to file function at the end of the code. This should be done at the end of all the code not in the middle as if you call it in the middle then at the end because then any logs that were exported will be erased. To export you just need to add to the end of your code: `logger.ExportToFile();`
 
 You can check out the exmaple.cpp in the src folder to see the code actually in use!
+
+# Future Stuff
+
+Here I just want to note some stuff that I will definatly add to the logger.
+- Colorising logs
+- adding time to each log event
+- add time to log.txt file name to make sure that no duplicats are made / no data is erased
+- Add extra details to log output file like total runtime, etc.

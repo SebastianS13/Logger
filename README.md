@@ -11,7 +11,7 @@ Error - Red
   
 # Usage  
   
-To initialise the logger you need to initalise it as every other class you would but you also have to pass a boolean which controls if logs are printed. Below you can see examples of both:  
+To initialise the logger you need to initalise it as every other class you would. Below you can see examples of both:  
 ```
 SebLogger logger;
 ```

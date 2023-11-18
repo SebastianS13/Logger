@@ -3,17 +3,12 @@
 #include <fstream>
 #include <vector>
 #include <Windows.h>
-#include <chrono>
-#include <string>
 
 std::vector<std::string> Logs;
 
 int TotalLogEvents = 0;
 int TotalWarnings = 0;
 int TotalErrors = 0;
-
-std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
-std::chrono::steady_clock::time_point end;
 
 class SebLogger
 {
@@ -48,7 +43,6 @@ public:
 			SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
 			std::cout << "[DEBUG]				" << Message << std::endl;
 			Logs.push_back("[DEBUG]				" + Message);
-			return;
 			break;
 		case Severity::Warning:
 			SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
@@ -66,15 +60,13 @@ public:
 			std::cout << "[DEBUG - ERROR] Passed serverity is incorrect!" << std::endl;
 			TotalErrors += 1;
 		}
+
+		SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN);
 	}
 
 	void ExportToFile()
 	{
-		auto end = std::chrono::steady_clock::now();
-		std::chrono::duration<double> duration = end - start;
-		double seconds = duration.count();
-
-		std::string FileName = "Log" + std::to_string(seconds) + ".txt";
+		std::string FileName = "Log.txt";
 		std::ofstream file(FileName);
 
 		file << "[INFORMATION]" << std::endl;
@@ -83,7 +75,6 @@ public:
 		file << "Total log events durring session: " << TotalLogEvents << std::endl;
 		file << "Total warnings durring session: " << TotalWarnings << std::endl;
 		file << "Total errors durring session: " << TotalErrors << std::endl;
-		file << "Runtime in seconds: " << seconds << std::endl;
 
 		file << std::endl;
 		file << std::endl;

@@ -24,6 +24,9 @@ std::string getCurrentTime(bool FileName)
 	return oss.str();
 }
 
+std::string StartTime = getCurrentTime(false);
+std::string EndTime;
+
 void SebLogger::Log(std::string Message, Severity severity)
 {
 	std::string TimeStamp = getCurrentTime(false);
@@ -51,6 +54,7 @@ void SebLogger::Log(std::string Message, Severity severity)
 	case Severity::CriticalError:
 		SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY);
 		Output = "[" + TimeStamp + "][DEBUG] - CRITIAL]			" + Message;
+		std::cout << "[" + TimeStamp + "][DEBUG] - CRITIAL]			" + Message << std::endl;
 		TotalErrors += 1;
 		Logs.push_back(Output);
 		SebLogger::ExportToFile();
@@ -67,10 +71,6 @@ void SebLogger::Log(std::string Message, Severity severity)
 	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN);
 }
 
-std::string StartTime = getCurrentTime(false);
-std::string EndTime;
-
-
 void SebLogger::ExportToFile()
 {
 	std::string FileName = getCurrentTime(true) + ".log";
@@ -83,27 +83,18 @@ void SebLogger::ExportToFile()
 
 	EndTime = getCurrentTime(false);
 
-	file << "[INFORMATION]" << std::endl;
-	file << std::endl;
+	file << "[INFORMATION]\n\n";
+	file << "Total log events during session: " << TotalLogEvents << '\n';
+	file << "Total warnings during session: " << TotalWarnings << '\n';
+	file << "Total errors during session: " << TotalErrors << "\n\n";
+	file << "Start time: " << StartTime << '\n';
+	file << "End time: " << EndTime << "\n\n\n";
+	file << "[LOG]\n\n";
 
-	file << "Total log events durring session: " << TotalLogEvents << std::endl;
-	file << "Total warnings durring session: " << TotalWarnings << std::endl;
-	file << "Total errors durring session: " << TotalErrors << std::endl;
-	file << std::endl;
-	file << "Start time: " << StartTime << std::endl;
-	file << "End time: " << EndTime << std::endl;
-
-	file << std::endl;
-	file << std::endl;
-	file << std::endl;
-
-	file << "[LOG]" << std::endl;
-	file << std::endl;
-
-	for (std::string Log : Logs)
-	{
-		file << Log << std::endl;
+	for (const std::string& Log : Logs) {
+		file << Log << '\n';
 	}
 
+	file.flush();
 	file.close();
 }

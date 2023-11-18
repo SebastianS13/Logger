@@ -8,7 +8,11 @@ Debug - green
 Warning - yellow  
 Error - Red
 ```
-  
+## Current Output
+This is what the output will look if you run the example.cpp:  
+![image](https://github.com/SebastianS13/Logger/assets/50264212/dccbf6fa-5e58-494d-9027-d25841925d73)
+
+
 # Usage  
   
 To initialise the logger you need to initalise it as every other class you would. Below you can see examples of both:  

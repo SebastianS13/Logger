@@ -11,7 +11,8 @@ CriticalError - Red Colour, Extra Indent, Stops execution, Exports logs to file
 ```
 ## Current Output
 This is what the output will look if you run the example.cpp:  
-![image](https://github.com/SebastianS13/Logger/assets/50264212/dccbf6fa-5e58-494d-9027-d25841925d73)
+![image](https://github.com/SebastianS13/Logger/assets/50264212/0e272380-2685-483a-8d17-08fc7491af8f)
+
 
 # Usage  
   

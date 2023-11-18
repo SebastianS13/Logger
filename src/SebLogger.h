@@ -66,8 +66,13 @@ public:
 
 	void ExportToFile()
 	{
-		std::string FileName = "Log.txt";
+		std::string FileName = "Log.log";
 		std::ofstream file(FileName);
+
+		if (!file.is_open())
+		{
+			SebLogger::Log("couldnt create log output file!", SebLogger::Severity::Error);
+		}
 
 		file << "[INFORMATION]" << std::endl;
 		file << std::endl;

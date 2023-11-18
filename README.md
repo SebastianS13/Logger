@@ -1,17 +1,17 @@
 # Seb Logger  
   
 This is my attempt at writing a logger class that someone might actually use. I added serveral features that I think people would want and everything is obviously
-is customisable. This logger includes colours for different serverites of log. Curerntly there are only 3 and they are listed below:  
+is customisable. This logger includes colours for different serverites of log. They are listed below and what they do:  
   
 ```
-Debug - green  
-Warning - yellow  
-Error - Red
+Debug - Greem colour
+Warning - Yellow colour
+Error - Red Colour
+CriticalError - Red Colour, Extra Indent, Stops execution, Exports logs to file
 ```
 ## Current Output
 This is what the output will look if you run the example.cpp:  
 ![image](https://github.com/SebastianS13/Logger/assets/50264212/dccbf6fa-5e58-494d-9027-d25841925d73)
-
 
 # Usage  
   

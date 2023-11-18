@@ -22,9 +22,9 @@ SebLogger logger;
   
 It is important to note that all logs passed into the logger get stored into an array, there is 1 array that all logger instances pass their logs to. To log something you need to pass a message and a severity. You can see examples for all 3 serveritise there are curerntly.  
 ```
-Logger.Log("Hello!", Logger.Debug); // This prints out "[DEBUG] {message}
-logger.Log("Hello!", logger.Warning); // This prints out "[DEBUG - WARNING] {message}
-logger.Log("Hello!", logger.Error); // This prints out "[DEBUG - ERROR] {message}
+Logger.Log("Hello!", Logger.Debug); // This prints out "[DEBUG] {message}"
+logger.Log("Hello!", logger.Warning); // This prints out "[DEBUG - WARNING] {message}"
+logger.Log("Hello!", logger.Error); // This prints out "[DEBUG - ERROR] {message}"
 ```  
 
 To export all logs to a file you need to call the export to file function at the end of the code. This should be done at the end of all the code not in the middle as if you call it in the middle then at the end, any logs that were exported will be erased. To export you just need to add to the end of your code: 

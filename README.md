@@ -32,11 +32,6 @@ To export all logs to a file you need to call the export to file function at the
 ```
 logger.ExportToFile();
 ```
+The exporting to file function can save at about 1 million logs per second, although this is amazing I am planning on splitting output files into a maximum of 100,000 logs to make smaller files and make the potetially even faster!
 
 You can check out the exmaple.cpp in the src folder to see the code actually in use!
-
-# Future Stuff
-
-Here I just want to note some stuff that I will definatly add to the logger.
-- adding time to each log event
-- Add extra details to log output file like total runtime, etc.

@@ -30,30 +30,21 @@ public:
 		TotalLogEvents += 1;
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-		time_t now = time(0);
-		struct tm currentTimeInfo;
-		localtime_s(&currentTimeInfo, &now);
-		int Hours = currentTimeInfo.tm_hour;
-		int Minutes = currentTimeInfo.tm_min;
-
-		std::string Time = Hours + ":" + Minutes;
+		std::string Output = "";
 
 		switch (severity) {
 		case Severity::Debug:
 			SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN);
-			std::cout << "[DEBUG]				" << Message << std::endl;
-			Logs.push_back("[DEBUG]				" + Message);
+			Output = "[DEBUG]				" + Message;
 			break;
 		case Severity::Warning:
 			SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN);
-			std::cout << "[DEBUG - WARNING]		" << Message << std::endl;
-			Logs.push_back("[DEBUG - WARNING]		" + Message);
+			Output = "[DEBUG - WARNING]		" + Message;
 			TotalWarnings += 1;
 			break;
 		case Severity::Error:
 			SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY);
-			std::cout << "[DEBUG - ERROR]			" << Message << std::endl;
-			Logs.push_back("[DEBUG - ERROR]			" + Message);
+			Output = "[DEBUG - ERROR]			" + Message;
 			TotalErrors += 1;
 			break;
 		default:
@@ -61,6 +52,8 @@ public:
 			TotalErrors += 1;
 		}
 
+		std::cout << Output << std::endl;
+		Logs.push_back(Output);
 		SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN);
 	}
 

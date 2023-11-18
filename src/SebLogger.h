@@ -22,7 +22,8 @@ public:
 	enum Severity {
 		Debug = 1,
 		Warning = 2,
-		Error = 3
+		Error = 3,
+		CriticalError = 4
 	};
 
 	void Log(std::string Message, Severity severity)
@@ -47,8 +48,17 @@ public:
 			Output = "[DEBUG - ERROR]			" + Message;
 			TotalErrors += 1;
 			break;
+		case Severity::CriticalError:
+			SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY);
+			Output = "[DEBUG - CRITIAL]			" + Message;
+			TotalErrors += 1;
+			Logs.push_back(Output);
+			SebLogger::ExportToFile();
+			exit(-1);
+			break;
 		default:
-			std::cout << "[DEBUG - ERROR] Passed serverity is incorrect!" << std::endl;
+			SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_INTENSITY);
+			Output = "[DEBUG - ERROR]			Passed serverity is incorrect!";
 			TotalErrors += 1;
 		}
 

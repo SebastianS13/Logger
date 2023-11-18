@@ -8,11 +8,8 @@
 #include <fstream>
 #include <vector>
 #include <Windows.h>
-#include <chrono>
 #include <iomanip>
-#include <ctime>
 #include <sstream>
-#include <string>
 
 std::vector<std::string> Logs;
 

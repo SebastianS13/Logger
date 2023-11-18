@@ -18,7 +18,6 @@ public:
 	{
 		Log("A new logger instance was initialised", SebLogger::Severity::Warning);
 	}
-
 	enum Severity {
 		Debug = 1,
 		Warning = 2,

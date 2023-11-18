@@ -5,6 +5,8 @@ int TotalLogEvents = 0;
 int TotalWarnings = 0;
 int TotalErrors = 0;
 
+
+
 std::string getCurrentTime(bool FileName)
 {
 	std::time_t now = std::time(nullptr);
@@ -24,11 +26,6 @@ std::string getCurrentTime(bool FileName)
 
 void SebLogger::Log(std::string Message, Severity severity)
 {
-	time_t s, val = 1;
-	struct tm* curr_time;
-	s = time(NULL);
-	curr_time = localtime(&s);
-
 	std::string TimeStamp = getCurrentTime(false);
 
 	TotalLogEvents += 1;
@@ -70,6 +67,10 @@ void SebLogger::Log(std::string Message, Severity severity)
 	SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_BLUE | FOREGROUND_GREEN);
 }
 
+std::string StartTime = getCurrentTime(false);
+std::string EndTime;
+
+
 void SebLogger::ExportToFile()
 {
 	std::string FileName = getCurrentTime(true) + ".log";
@@ -80,12 +81,17 @@ void SebLogger::ExportToFile()
 		SebLogger::Log("couldnt create log output file!", SebLogger::Severity::Error);
 	}
 
+	EndTime = getCurrentTime(false);
+
 	file << "[INFORMATION]" << std::endl;
 	file << std::endl;
 
 	file << "Total log events durring session: " << TotalLogEvents << std::endl;
 	file << "Total warnings durring session: " << TotalWarnings << std::endl;
 	file << "Total errors durring session: " << TotalErrors << std::endl;
+	file << std::endl;
+	file << "Start time: " << StartTime << std::endl;
+	file << "End time: " << EndTime << std::endl;
 
 	file << std::endl;
 	file << std::endl;

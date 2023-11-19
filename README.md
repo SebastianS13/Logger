@@ -16,9 +16,9 @@ This is what the output will look if you run the example.cpp:
 
 # Usage  
   
-To initialise the logger you need to initalise it as every other class you would. Below you can see an example:  
+To initialise the logger you need to initalise it as every other class you would but you also have to pass a TimeFormat which is a string. Below you can see an example where I use the %H:%M which means it will use HOURS : MINUTES as the format:  
 ```
-SebLogger logger;
+SebLogger logger("%H:%M");
 ```
   
 It is important to note that all logs passed into the logger get stored into an array, there is 1 array that all logger instances pass their logs to. To log something you need to pass a message and a severity. You can see examples for all 3 serveritise there are curerntly.  

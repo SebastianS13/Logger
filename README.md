@@ -1,7 +1,7 @@
 # Seb Logger  
   
 This is my attempt at writing a logger class that someone might actually use. I added serveral features that I think people would want and everything is obviously
-is customisable. This logger includes colours for different serverites of log. They are listed below and what they do:  
+is customisable. This logger includes colours for different serverites of log. They are listed below and what they do:
   
 ```
 Debug - Greem colour
@@ -16,7 +16,7 @@ This is what the output will look if you run the example.cpp:
 
 # Usage  
   
-To initialise the logger you need to initalise it as every other class you would but you also have to pass a TimeFormat which is a string. Below you can see an example where I use the %H:%M which means it will use HOURS : MINUTES as the format:  
+To initialise the logger you need to initalise it as every other class you would but you also have to pass a TimeFormat which is a string. Below you can see an example where I use the %H:%M which means it will use HOURS : MINUTES as the format (You can check the wiki for more info on everything):  
 ```
 SebLogger logger("%H:%M");
 ```

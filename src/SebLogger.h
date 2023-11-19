@@ -13,19 +13,29 @@
 class SebLogger
 {
 public:
-
-	SebLogger()
-	{
-		Log("A new logger instance was initialised", SebLogger::Severity::Warning);
-	}
 	enum Severity {
 		Debug = 1,
 		Warning = 2,
 		Error = 3,
-		CriticalError = 4
+		CriticalError = 4,
 	};
 
+	enum TimeFormat {
+		HOURS_MINUTES = 1,
+		MINUTES_HOURS = 2,
+		HOURS = 3,
+		MINUTES = 4,
+	};
+
+
 	void Log(std::string Message, Severity severity);
+	void ChangeTimeFormat(TimeFormat NewFormat);
 	void ExportToFile();
+
+	SebLogger(TimeFormat Format)
+	{
+		Log("A new logger instance was initialised", SebLogger::Severity::Warning);
+		ChangeTimeFormat(Format);
+	}
 };
 

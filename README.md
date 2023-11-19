@@ -16,7 +16,7 @@ This is what the output will look if you run the example.cpp:
 
 # Usage  
   
-To initialise the logger you need to initalise it as every other class you would but you also have to pass a TimeFormat which is a string. Below you can see an example where I use the %H:%M which means it will use HOURS : MINUTES as the format (You can check the wiki for more info on everything):  
+To initialise the logger you need to initalise it as every other class you would but you also have to pass a TimeFormat which is a string. Below you can see an example where I use the %H:%M which means it will use HOURS : MINUTES as the format:  
 ```
 SebLogger logger("%H:%M");
 ```

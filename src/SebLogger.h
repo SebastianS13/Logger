@@ -1,4 +1,5 @@
 #pragma once
+
 #ifdef _MSC_VER
 #define _CRT_SECURE_NO_WARNINGS
 #endif
@@ -20,22 +21,14 @@ public:
 		CriticalError = 4,
 	};
 
-	enum TimeFormat {
-		HOURS_MINUTES = 1,
-		MINUTES_HOURS = 2,
-		HOURS = 3,
-		MINUTES = 4,
-	};
-
-
 	void Log(std::string Message, Severity severity);
-	void ChangeTimeFormat(TimeFormat NewFormat);
+	void ChangeTimeFormat(const char* NewFormat);
 	void ExportToFile();
 
-	SebLogger(TimeFormat Format)
+	SebLogger(const char* Format)
 	{
-		Log("A new logger instance was initialised", SebLogger::Severity::Warning);
 		ChangeTimeFormat(Format);
+		Log("A new logger instance was initialised", SebLogger::Severity::Warning);
 	}
 };
 

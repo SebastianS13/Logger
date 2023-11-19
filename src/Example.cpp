@@ -2,7 +2,7 @@
 
 int main()
 {
-	SebLogger Logger(SebLogger::MINUTES_HOURS);
+	SebLogger Logger("%H:%M");
 
 	Logger.Log("Example of a normal log!", Logger.Debug);
 	Logger.Log("Example of a warning!", Logger.Warning);

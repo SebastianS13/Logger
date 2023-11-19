@@ -1,4 +1,5 @@
 #pragma once
+
 #ifdef _MSC_VER
 #define _CRT_SECURE_NO_WARNINGS
 #endif
@@ -13,19 +14,21 @@
 class SebLogger
 {
 public:
-
-	SebLogger()
-	{
-		Log("A new logger instance was initialised", SebLogger::Severity::Warning);
-	}
 	enum Severity {
 		Debug = 1,
 		Warning = 2,
 		Error = 3,
-		CriticalError = 4
+		CriticalError = 4,
 	};
 
 	void Log(std::string Message, Severity severity);
+	void ChangeTimeFormat(const char* NewFormat);
 	void ExportToFile();
+
+	SebLogger(const char* Format)
+	{
+		ChangeTimeFormat(Format);
+		Log("A new logger instance was initialised", SebLogger::Severity::Warning);
+	}
 };
 

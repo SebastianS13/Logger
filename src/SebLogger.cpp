@@ -5,7 +5,7 @@ int TotalLogEvents = 0;
 int TotalWarnings = 0;
 int TotalErrors = 0;
 
-
+const char* CurrentTimeFormat = "%H:%M";
 
 std::string getCurrentTime(bool FileName)
 {
@@ -20,7 +20,7 @@ std::string getCurrentTime(bool FileName)
 	}
 
 	std::ostringstream oss;
-	oss << std::put_time(&timeInfo, "%H:%M");
+	oss << std::put_time(&timeInfo, CurrentTimeFormat);
 	return oss.str();
 }
 
@@ -97,4 +97,9 @@ void SebLogger::ExportToFile()
 
 	file.flush();
 	file.close();
+}
+
+void SebLogger::ChangeTimeFormat(const char* NewFormat)
+{
+	CurrentTimeFormat = NewFormat;
 }
